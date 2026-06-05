@@ -119,12 +119,12 @@ $$
 #### 图片
 
 ```markdown
-![CWorld](https://gravatar.loli.net/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200)
+![CWorld](https://openlist.031312.xyz/avatar.avif)
 ```
 
 预览：
 
-![CWorld](https://gravatar.loli.net/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200)
+![CWorld](https://openlist.031312.xyz/avatar.avif)
 
 #### 删除线
 

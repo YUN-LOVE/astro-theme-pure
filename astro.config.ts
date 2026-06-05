@@ -1,5 +1,5 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
-import vercel from '@astrojs/vercel'
+// import vercel from '@astrojs/vercel'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
@@ -22,6 +22,8 @@ import {
 } from './src/plugins/shiki-official/transformers.ts'
 import config from './src/site.config.ts'
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   // [Basic]
@@ -40,7 +42,7 @@ export default defineConfig({
 
   // [Adapter]
   // https://docs.astro.build/en/guides/deploy/
-  adapter: vercel({ imageService: true }),
+  adapter: cloudflare(),
   output: 'server',
   // Local (standalone)
   // adapter: node({ mode: 'standalone' }),
@@ -129,19 +131,19 @@ export default defineConfig({
   experimental: {
     // Allow compatible editors to support intellisense features for content collection entries
     // https://docs.astro.build/en/reference/experimental-flags/content-intellisense/
-    contentIntellisense: true,
+    //contentIntellisense: true,
     // Enable SVGO optimization for SVG assets
     // https://docs.astro.build/en/reference/experimental-flags/svg-optimization/
-    svgo: true,
+    //svgo: true,
     // Enables pre-rendering your prefetched pages on the client in supported browsers.
     // https://docs.astro.build/en/reference/experimental-flags/client-prerender/
-    clientPrerender: true,
+    //clientPrerender: true,
     // Enables using the new Rust-based compiler for Astro files.
     // https://docs.astro.build/en/reference/experimental-flags/rust-compiler/
-    rustCompiler: false,
+    //rustCompiler: false,
     // https://docs.astro.build/en/reference/experimental-flags/queued-rendering/
-    queuedRendering: {
-      enabled: true
-    }
+    //queuedRendering: {
+      //enabled: true
+    //}
   }
 })
