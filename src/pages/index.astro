@@ -35,7 +35,7 @@ if (!images[imagePath])
       <Image
         src={images[imagePath]()}
         alt={config.logo.alt || 'Profile'}
-        class='h-28 w-auto rounded-full border p-1'
+        class='h-28 w-auto rouded-full border p-1'
         loading='eager'
         fetchpriority='high'
       />
@@ -49,7 +49,7 @@ if (!images[imagePath])
           <Label
             title='Source code'
             as='a'
-            href='https://github.com/cworld1/astro-theme-pure'
+            href='https://github.com/yun-love/astro-theme-pure'
             target='_blank'
           >
             <Icon name='github' class='size-5' slot='icon' />
@@ -59,7 +59,7 @@ if (!images[imagePath])
 
       {/* Get template */}
       <a
-        href='https://github.com/cworld1/astro-theme-pure'
+        href='https://github.com/yun-love/astro-theme-pure'
         target='_blank'
         class='flex flex-row items-center gap-x-3 rounded-full border bg-background px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
       >
@@ -77,9 +77,7 @@ if (!images[imagePath])
       <Section title='About'>
         <p class='text-muted-foreground'>Developer / Designer</p>
         <p class='text-muted-foreground'>
-          Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione
-          indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel,
-          at eum oratio possit voluptatum.
+          极致的优化是我的毕生追求，科技平权是我的伟大理想。
         </p>
         <Button title='More about me' class='w-fit self-end' href='/about' variant='ahead' />
       </Section>
@@ -127,64 +125,76 @@ if (!images[imagePath])
       />
     </Section> */
       }
-      <Section title='Education'>
-        <Card
-          as='a'
-          heading='Lorem ipsum'
-          subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.'
-          date='August 2021 - July 2025'
-          href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-        >
-          {
-            /* <ul class='ms-4 list-disc text-muted-foreground'>
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
-            molestiae laboriosam pariatur!
-          </li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-        </ul> */
-          }
-        </Card>
-      </Section>
+      <!-- <Section title='Education'> -->
+      <!--   <Card -->
+      <!--     as='a' -->
+      <!--     heading='Lorem ipsum' -->
+      <!--     subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.' -->
+      <!--     date='August 2021 - July 2025' -->
+      <!--     href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' -->
+      <!--   > -->
+      <!--     { -->
+      <!--       /* <ul class='ms-4 list-disc text-muted-foreground'> -->
+      <!--     <li> -->
+      <!--       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut -->
+      <!--       molestiae laboriosam pariatur! -->
+      <!--     </li> -->
+      <!--     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li> -->
+      <!--   </ul> */ -->
+      <!--     } -->
+      <!--   </Card> -->
+      <!-- </Section> -->
 
       <Section title='Website List'>
         <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
           <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='Do not go gentle into that good night'
-            imagePath='/src/assets/projects/1.avif'
+              href='https://ai-img.031312.xyz/'
+            heading='AI图像生成'
+            subheading='通过调用Cloudflare的AI来生成图像'
+            imagePath='/src/assets/projects/image.avif'
           />
           <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='Old age burn and rave at close of day'
-            imagePath='/src/assets/projects/2.avif'
+              href='https://monitor.031312.xyz/'
+            heading='Monitor'
+            subheading='Monitor是利用edgeone搭建的监控大屏'
+            imagePath='/src/assets/projects/monitor.avif'
           />
           <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='Rage, rage against the dying of the light'
-            imagePath='/src/assets/projects/3.avif'
+            href='https://mail.031312.xyz/'
+            heading='Moemail'
+            subheading='Moemail是利用Cloudflare搭建的邮局'
+            imagePath='/src/assets/projects/moemail.avif'
           />
           <ProjectCard
-            href='/projects'
-            heading='More projects'
-            subheading='Check out more projects'
-            imagePath='/src/assets/projects/4.avif'
+            href='https://push.031312.xyz/'
+            heading='Moepush'
+            subheading='Moepush是个将webhook接口再封装的工具'
+            imagePath='/src/assets/projects/moepush.avif'
+          />
+          <ProjectCard
+            href='https://umami.031312.xyz/share/V4876OwqxIo2vSbe'
+            heading='Umami'
+            subheading='Umami是高效，现代的统计工具'
+            imagePath='/src/assets/projects/umami.avif'
+          />
+          <ProjectCard
+              href='https://one.031312.xyz/'
+              heading='OneDeiver'
+              subheading='利用onedriver搭建的资源分发站点'
+              imagePath='/src/assets/projects/onedriver.avif'
           />
         </div>
       </Section>
 
-      <Section title='Certifications'>
-        <Card
-          as='a'
-          heading='Lorem ipsum'
-          subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio possit voluptatum. Dicat ceteros cu vim. Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.'
-          date='July 2024'
-          href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-        />
-      </Section>
+      <!-- <Section title='Certifications'> -->
+      <!--   <Card -->
+      <!--     as='a' -->
+      <!--     heading='Lorem ipsum' -->
+      <!--     subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio possit voluptatum. Dicat ceteros cu vim. Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.' -->
+      <!--     date='July 2024' -->
+      <!--     href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' -->
+      <!--   /> -->
+      <!-- </Section> -->
 
       <Section title='Skills'>
         <SkillLayout title='Languages' skills={languages} />
