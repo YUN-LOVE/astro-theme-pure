@@ -14,21 +14,21 @@ const headings = [
 
 const { friends } = links
 const linksConf = config.integ.links
-const linkEditPage = 'https://github.com/cworld1/astro-theme-pure/blob/main/public/links.json'
+const linkEditPage = 'https://github.com/yun-love/astro-theme-pure/blob/main/public/links.json'
 ---
 
 <PageLayout title='Links' {headings} comment>
-  <p>They're sorted randomly.</p>
-  <h2 id='common-links'>Common Links</h2>
-  <FriendList list={friends[0]} />
-  <Collapse title='Links with Bad Status'>
-    <FriendList list={friends[1]} />
-  </Collapse>
-  <Collapse title='Link History Book'>
-    <Timeline events={linksConf.logbook} />
-  </Collapse>
-  <h2 id='special-links'>Special Links</h2>
-  <FriendList list={friends[2]} />
+  <!-- <p>They're sorted randomly.</p> -->
+  <!-- <h2 id='common-links'>Common Links</h2> -->
+  <!-- <FriendList list={friends[0]} /> -->
+  <!-- <Collapse title='Links with Bad Status'> -->
+  <!--   <FriendList list={friends[1]} /> -->
+  <!-- </Collapse> -->
+  <!-- <Collapse title='Link History Book'> -->
+  <!--   <Timeline events={linksConf.logbook} /> -->
+  <!-- </Collapse> -->
+  <!-- <h2 id='special-links'>Special Links</h2> -->
+  <!-- <FriendList list={friends[2]} /> -->
 
   <h2 id='apply-links'>Apply Links</h2>
   <p>本站信息（点击复制）The site information (click to copy)：</p>
