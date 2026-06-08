@@ -1,0 +1,32 @@
+---
+// src/components/Video.astro
+export interface Props {
+  src: string;      // 视频链接（YouTube embed URL 或视频文件）
+  title?: string;   // 可访问性标题
+  ratio?: '16:9' | '4:3';  // 宽高比，默认 16:9
+  class?: string;   // 额外的 UnoCSS 类
+}
+
+const { src, title = 'Embedded video', ratio = '16:9', class: className = '' } = Astro.props;
+const paddingBottom = ratio === '16:9' ? '56.25%' : '75%';
+---
+
+<div class={`relative pb-[${paddingBottom}] h-0 overflow-hidden max-w-full bg-black rounded-xl ${className}`}>
+  {
+    src.includes('youtube.com/embed') || src.includes('vimeo.com') ? (
+      <iframe
+        class="absolute top-0 left-0 w-full h-full"
+        src={src}
+        title={title}
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    ) : (
+      <video class="absolute top-0 left-0 w-full h-full object-cover" controls>
+        <source src={src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    )
+  }
+</div>
