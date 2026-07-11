@@ -29,7 +29,7 @@ if (!images[imagePath])
   )
 
 const bannerGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/baner.{png,jpg,jpeg,webp,avif}'
+  '/public/images/baner.{png,jpg,jpeg,webp,avif}'
 )
 const bannerEntry = Object.entries(bannerGlob)[0]
 ---
@@ -50,9 +50,9 @@ const bannerEntry = Object.entries(bannerGlob)[0]
         </div>
       )
     }
-    <div class='flex w-full flex-col gap-x-10 gap-y-8 md:flex-row relative z-[1] mt-40 md:mt-52'>
+    <div class='flex w-full flex-col gap-x-16 gap-y-8 md:flex-row relative z-[1] mt-40 md:mt-52'>
       <aside class='animate shrink-0 md:sticky md:top-60 md:w-60 lg:w-72 md:-ml-4'>
-        <section class='flex flex-col items-center gap-y-7 rounded-2xl border bg-background p-6 shadow-sm mt-20 ' id='content-header'>
+        <section class='flex flex-col items-center gap-y-7 rounded-2xl border bg-background p-6 shadow-sm mt-4 ' id='content-header'>
       <Image
         src={images[imagePath]()}
         alt={config.logo.alt || 'Profile'}
@@ -90,20 +90,14 @@ const bannerEntry = Object.entries(bannerGlob)[0]
             class='absolute size-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
           ></span>
           <span class='size-2 rounded-full bg-green-400'></span>
-        </span>
+r       </span>
         <p class='font-medium text-muted-foreground'>Get Template</p>
       </a>
     </section>
       </aside>
 
       <div id='content' class='animate flex flex-1 flex-col gap-y-10'>
-      <Section title='About'>
-        <p class='text-muted-foreground'>Developer / Designer</p>
-        <p class='text-muted-foreground'>
-          极致的优化是我的毕生追求，科技平权是我的伟大理想。
-        </p>
-        <Button title='More about me' class='w-fit self-end' href='/about' variant='ahead' />
-      </Section>
+
       {
         allPostsByDate.length > 0 && (
           <Section title='Posts'>
@@ -168,47 +162,6 @@ const bannerEntry = Object.entries(bannerGlob)[0]
       <!--   </Card> -->
       <!-- </Section> -->
 
-      <Section title='Website List'>
-        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-          <ProjectCard
-              href='https://ai-img.031312.xyz/'
-            heading='AI图像生成'
-            subheading='通过调用Cloudflare的AI来生成图像'
-            imagePath='/src/assets/projects/image.avif'
-          />
-          <ProjectCard
-              href='https://monitor.031312.xyz/'
-            heading='Monitor'
-            subheading='Monitor是利用edgeone搭建的监控大屏'
-            imagePath='/src/assets/projects/monitor.avif'
-          />
-          <ProjectCard
-            href='https://mail.031312.xyz/'
-            heading='Moemail'
-            subheading='Moemail是利用Cloudflare搭建的邮局'
-            imagePath='/src/assets/projects/moemail.avif'
-          />
-          <ProjectCard
-            href='https://push.031312.xyz/'
-            heading='Moepush'
-            subheading='Moepush是个将webhook接口再封装的工具'
-            imagePath='/src/assets/projects/moepush.avif'
-          />
-          <ProjectCard
-            href='https://umami.031312.xyz/share/V4876OwqxIo2vSbe'
-            heading='Umami'
-            subheading='Umami是高效，现代的统计工具'
-            imagePath='/src/assets/projects/umami.avif'
-          />
-          <ProjectCard
-              href='https://one.031312.xyz/'
-              heading='OneDeiver'
-              subheading='利用onedriver搭建的资源分发站点'
-              imagePath='/src/assets/projects/onedriver.avif'
-          />
-        </div>
-      </Section>
-
       <!-- <Section title='Certifications'> -->
       <!--   <Card -->
       <!--     as='a' -->
@@ -219,13 +172,49 @@ const bannerEntry = Object.entries(bannerGlob)[0]
       <!--   /> -->
       <!-- </Section> -->
 
-      <Section title='Skills'>
-        <SkillLayout title='Languages' skills={languages} />
-        <SkillLayout title='Frontend' skills={frontend} />
-        <SkillLayout title='Backend' skills={backend} />
-      </Section>
+
       </div>
     </div>
+    <Section title='Website List' class='mt-10'>
+      <div class='grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3'>
+        <ProjectCard
+            href='https://ai-img.031312.xyz/'
+          heading='AI图像生成'
+          subheading='通过调用Cloudflare的AI来生成图像'
+          imagePath='/src/assets/projects/image.avif'
+        />
+        <ProjectCard
+            href='https://monitor.031312.xyz/'
+          heading='Monitor'
+          subheading='Monitor是利用edgeone搭建的监控大屏'
+          imagePath='/src/assets/projects/monitor.avif'
+        />
+        <ProjectCard
+          href='https://mail.031312.xyz/'
+          heading='Moemail'
+          subheading='Moemail是利用Cloudflare搭建的邮局'
+          imagePath='/src/assets/projects/moemail.avif'
+        />
+        <ProjectCard
+          href='https://push.031312.xyz/'
+          heading='Moepush'
+          subheading='Moepush是个将webhook接口再封装的工具'
+          imagePath='/src/assets/projects/moepush.avif'
+        />
+        <ProjectCard
+          href='https://umami.031312.xyz/share/V4876OwqxIo2vSbe'
+          heading='Umami'
+          subheading='Umami是高效，现代的统计工具'
+          imagePath='/src/assets/projects/umami.avif'
+        />
+        <ProjectCard
+            href='https://one.031312.xyz/'
+            heading='OneDeiver'
+            subheading='利用onedriver搭建的资源分发站点'
+            imagePath='/src/assets/projects/onedriver.avif'
+        />
+      </div>
+    </Section>
     <Quote class='mt-12' />
   </main>
 </PageLayout>
