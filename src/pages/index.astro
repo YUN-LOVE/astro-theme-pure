@@ -29,7 +29,7 @@ if (!images[imagePath])
   )
 
 const bannerGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/public/images/baner.{png,jpg,jpeg,webp,avif}'
+'/public/images/baner.{png,jpg,jpeg,webp,avif}'
 )
 const bannerEntry = Object.entries(bannerGlob)[0]
 ---
@@ -52,7 +52,7 @@ const bannerEntry = Object.entries(bannerGlob)[0]
     }
     <div class='flex w-full flex-col gap-x-16 gap-y-8 md:flex-row relative z-[1] mt-40 md:mt-52'>
       <aside class='animate shrink-0 md:sticky md:top-60 md:w-60 lg:w-72 md:-ml-4'>
-        <section class='flex flex-col items-center gap-y-7 rounded-2xl border bg-background p-6 shadow-sm mt-4 ' id='content-header'>
+        <section class='flex flex-col items-center gap-y-7 rounded-2xl border bg-background p-6 shadow-sm mt-2 ' id='content-header'>
       <Image
         src={images[imagePath]()}
         alt={config.logo.alt || 'Profile'}
@@ -100,7 +100,7 @@ r       </span>
 
       {
         allPostsByDate.length > 0 && (
-          <Section title='Posts'>
+          <Section >
             <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
               {allPostsByDate.map((p) => (
                 <li class='flex flex-col gap-x-2 sm:flex-row'>
@@ -175,7 +175,7 @@ r       </span>
 
       </div>
     </div>
-    <Section title='Website List' class='mt-10'>
+    <Section class='mt-10'>
       <div class='grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3'>
         <ProjectCard
             href='https://ai-img.031312.xyz/'
