@@ -29,7 +29,7 @@ if (!images[imagePath])
   )
 
 const bannerGlob = import.meta.glob<{ default: ImageMetadata }>(
-'/public/images/baner.{png,jpg,jpeg,webp,avif}'
+'/src/assets/projects/baner.{png,jpg,jpeg,webp,avif}'
 )
 const bannerEntry = Object.entries(bannerGlob)[0]
 ---
