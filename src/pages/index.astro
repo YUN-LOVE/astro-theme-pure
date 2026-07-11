@@ -29,7 +29,7 @@ if (!images[imagePath])
   )
 
 const bannerGlob = import.meta.glob<{ default: ImageMetadata }>(
-'/public/images/banner.{png,jpg,jpeg,webp,avif}'
+'/public/images/baner.{png,jpg,jpeg,webp,avif}'
 )
 const bannerEntry = Object.entries(bannerGlob)[0]
 ---
@@ -41,6 +41,7 @@ const bannerEntry = Object.entries(bannerGlob)[0]
         <div class='absolute left-0 top-0 z-0 h-64 w-full overflow-hidden md:h-80'>
           <Image
             src={bannerEntry[1]()}
+            quality={30}
             alt='Banner'
             format='avif'
             class='h-full w-full object-cover opacity-25 dark:opacity-20'
