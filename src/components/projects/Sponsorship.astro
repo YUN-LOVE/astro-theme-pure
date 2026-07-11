@@ -8,6 +8,7 @@ import { cn } from 'astro-pure/utils'
 
 interface Props {
   class?: string
+  format?: 'avif' | 'webp' | 'png' | 'jpeg' | 'jpg' | 'svg'
   methods: {
     name: string
     icon: IconsType
@@ -15,7 +16,7 @@ interface Props {
   }[]
 }
 
-const { class: className, methods, ...props } = Astro.props
+const { class: className, methods, format = 'avif', ...props } = Astro.props
 ---
 
 <div class={cn('flex flex-col justify-center gap-4 sm:flex-row', className)} {...props}>
@@ -28,6 +29,7 @@ const { class: className, methods, ...props } = Astro.props
         <Image
           class='sponsorship-card-img mx-auto my-0 max-w-60 blur-sm transition-opacity'
           src={item.image}
+          format={format}
           alt={item.name}
           loading='lazy'
         />

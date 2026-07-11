@@ -10,6 +10,7 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
   subheading: string
   imagePath: string
   altText?: string
+  format?: 'avif' | 'webp' | 'png' | 'jpeg' | 'jpg' | 'svg'
   href?: string
   class?: string
 }
@@ -21,7 +22,8 @@ const {
   heading,
   subheading,
   imagePath,
-  altText
+  altText,
+  format = 'avif'
 } = Astro.props
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/projects/*.{jpeg,jpg,png,gif,avif,webp}'
@@ -44,6 +46,7 @@ if (!images[imagePath])
   <Image
     src={images[imagePath]()}
     alt={altText ?? heading}
+    format={format}
     class='absolute w-full object-contain opacity-60 transition-opacity group-hover:opacity-100 dark:opacity-35'
     class='absolute w-full h-full object-cover opacity-60 transition-opacity group-hover:opacity-100 dark:opacity-35'
     loading='lazy'

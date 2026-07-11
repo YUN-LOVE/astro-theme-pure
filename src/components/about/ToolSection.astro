@@ -8,6 +8,7 @@ import { cn } from 'astro-pure/utils'
 interface Props {
   class?: string
   title: string
+  format?: 'avif' | 'webp' | 'png' | 'jpeg' | 'jpg' | 'svg'
   tools: {
     name: string
     description: string
@@ -17,7 +18,7 @@ interface Props {
   }[]
 }
 
-const { class: className, title, tools, ...props } = Astro.props
+const { class: className, title, tools, format = 'avif', ...props } = Astro.props
 
 function isImageMetadata(obj: unknown): obj is ImageMetadata {
   return typeof obj === 'object' && obj !== null && 'src' in obj
@@ -43,7 +44,12 @@ function isImageMetadata(obj: unknown): obj is ImageMetadata {
               <>
                 {isImageMetadata(tool.icon) ? (
                   <div class='size-10 rounded-lg bg-card p-2 dark:hidden'>
-                    <Image src={tool.icon} alt={tool.name} class='h-full w-full object-contain' />
+                    <Image
+                      src={tool.icon}
+                      alt={tool.name}
+                      format={format}
+                      class='h-full w-full object-contain'
+                    />
                   </div>
                 ) : (
                   <Svg
@@ -57,6 +63,7 @@ function isImageMetadata(obj: unknown): obj is ImageMetadata {
                     <Image
                       src={tool.darkIcon}
                       alt={tool.name}
+                      format={format}
                       class='h-full w-full object-contain'
                     />
                   </div>
@@ -71,7 +78,12 @@ function isImageMetadata(obj: unknown): obj is ImageMetadata {
               <>
                 {isImageMetadata(tool.icon) ? (
                   <div class='size-10 rounded-lg bg-card p-2'>
-                    <Image src={tool.icon} alt={tool.name} class='h-full w-full object-contain' />
+                    <Image
+                      src={tool.icon}
+                      alt={tool.name}
+                      format={format}
+                      class='h-full w-full object-contain'
+                    />
                   </div>
                 ) : (
                   <Svg src={tool.icon} class='size-10 rounded-lg bg-card fill-foreground p-2' />

@@ -30,9 +30,10 @@ function shuffle(arr: Friend[]) {
 
 interface Props {
   title?: string
+  format?: 'avif' | 'webp' | 'png' | 'jpeg' | 'jpg' | 'svg'
   list: FriendList
 }
-const { title, list: friendList, ...props } = Astro.props
+const { title, list: friendList, format = 'avif', ...props } = Astro.props
 
 const getAvatarSrc = (friend: Friend) =>
   (config.integ?.links?.cacheAvatar ?? false)
@@ -53,6 +54,7 @@ const getAvatarSrc = (friend: Friend) =>
                 <Image
                   class='my-0 bg-card'
                   src={getAvatarSrc(frd)}
+                  format={format}
                   height={80}
                   width={80}
                   alt='avatar'
@@ -96,6 +98,7 @@ const getAvatarSrc = (friend: Friend) =>
             <Image
               class='absolute -start-2 top-0 z-0 my-0 h-full w-2/3 bg-white object-cover opacity-15'
               src={getAvatarSrc(frd)}
+              format={format}
               height={80}
               width={80}
               alt='avatar bg'
