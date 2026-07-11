@@ -27,11 +27,32 @@ if (!images[imagePath])
   throw new Error(
     `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif,avif,webp}"`
   )
+
+const bannerGlob = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/baner.{png,jpg,jpeg,webp,avif}'
+)
+const bannerEntry = Object.entries(bannerGlob)[0]
 ---
 
 <PageLayout meta={{ title: 'Home' }} highlightColor='#659EB9'>
   <main class='flex w-full flex-col items-center'>
-    <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
+    {
+      bannerEntry && (
+        <div class='absolute left-0 top-0 z-0 h-64 w-full overflow-hidden md:h-80'>
+          <Image
+            src={bannerEntry[1]()}
+            alt='Banner'
+            format='avif'
+            class='h-full w-full object-cover opacity-25 dark:opacity-20'
+            loading='eager'
+            fetchpriority='high'
+          />
+        </div>
+      )
+    }
+    <div class='flex w-full flex-col gap-x-10 gap-y-8 md:flex-row relative z-[1] mt-40 md:mt-52'>
+      <aside class='animate shrink-0 md:sticky md:top-60 md:w-60 lg:w-72 md:-ml-4'>
+        <section class='flex flex-col items-center gap-y-7 rounded-2xl border bg-background p-6 shadow-sm mt-20 ' id='content-header'>
       <Image
         src={images[imagePath]()}
         alt={config.logo.alt || 'Profile'}
@@ -73,8 +94,9 @@ if (!images[imagePath])
         <p class='font-medium text-muted-foreground'>Get Template</p>
       </a>
     </section>
+      </aside>
 
-    <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
+      <div id='content' class='animate flex flex-1 flex-col gap-y-10'>
       <Section title='About'>
         <p class='text-muted-foreground'>Developer / Designer</p>
         <p class='text-muted-foreground'>
@@ -202,6 +224,7 @@ if (!images[imagePath])
         <SkillLayout title='Frontend' skills={frontend} />
         <SkillLayout title='Backend' skills={backend} />
       </Section>
+      </div>
     </div>
     <Quote class='mt-12' />
   </main>
