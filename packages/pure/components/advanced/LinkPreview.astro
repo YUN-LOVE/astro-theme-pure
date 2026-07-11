@@ -40,6 +40,7 @@ const domain = meta?.url ? new URL(meta.url).hostname.replace('www.', '') : ''
             class={cn('m-0 sm:max-w-60', zoomable && 'zoomable')}
             src={meta.image}
             alt={meta.imageAlt || ''}
+            format='avif'
             width='1200'
             height='630'
           />
