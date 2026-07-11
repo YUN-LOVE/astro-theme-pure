@@ -3,6 +3,7 @@ import { Footer, Header, ThemeProvider } from 'astro-pure/components/basic'
 import type { SiteMeta } from 'astro-pure/types'
 import BaseHead from '@/components/BaseHead.astro'
 import config from '@/site-config'
+import { ClientRouter } from 'astro:transitions';
 
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseLayout /> component.
@@ -25,6 +26,7 @@ const {
   <head>
     <BaseHead {articleDate} {description} {ogImage} {title} />
     <ThemeProvider />
+    <ClientRouter />
   </head>
 
   <body class='flex justify-center bg-background text-foreground' {...props}>
@@ -41,7 +43,7 @@ const {
       id='main-container'
       class='w-full max-w-[70rem] min-h-[100dvh] flex flex-col justify-between'
     >
-      <Header />
+      <Header transitions:persist/>
       <div class='flex-1 w-full'>
         <slot />
       </div>
