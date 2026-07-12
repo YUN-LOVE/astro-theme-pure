@@ -6,40 +6,40 @@ tags:
   - Technology
 ---
 
-# 引言
+# 一、引言
 
-Scrcpy（Screen Copy）是一个开源、免费且无需Root权限的安卓设备投屏与控制工具。它通过ADB（Android调试桥）传输视频流，以低延迟和高画质著称。  
+**Scrcpy**（**Screen Copy**）是一个开源、免费且无需Root权限的安卓设备投屏与控制工具。它通过**ADB**（**Android调试桥**）传输视频流，以低延迟和高画质著称。  
 
 核心特点：  
 
 · 高效稳定：延迟可低至30-50ms，资源占用极低（内存约45MB）。  
 · 双向控制：支持键盘、鼠标操作，以及剪贴板双向复制粘贴。  
-· 功能全面：支持文件拖拽安装、录屏（MP4/MKV）和摄像头镜像（Android 12+）。  
+· 功能全面：支持文件拖拽安装、录屏（MP4/MKV）和摄像头镜像（**Android 12+**）。  
 
-# 驱动安装
+# 二、驱动安装
 
 你需要安装adb驱动，在[驱动包](https://one.031312.xyz/api/raw/?path=/%E6%96%87%E6%A1%A3%2B%E5%8E%8B%E7%BC%A9%E5%8C%85/%E9%AA%81%E9%BE%99%E5%BC%BA%E9%99%8Dmiui.rar)下载 
 
-你需要下载adb sdk，在[Google的adb sdk下载网页](https://developer.android.google.cn/tools/releases/platform-tools?hl=zh-cn)
+你需要下载adb sdk，在[Google adb sdk](https://developer.android.google.cn/tools/releases/platform-tools?hl=zh-cn)
 
-# 基础使用
+# 三、基础使用
 
 1. 环境准备  
-手机需开启“开发者选项”和“USB调试”，并确认电脑已安装ADB工具。可通过 adb devices 验证连接状态。  
+手机需开启“**开发者选项**”和“**USB调试**”，并确认电脑已安装ADB工具。可通过 `adb devices` 验证连接状态。  
 
 2. 有线连接（最常用）  
-直接执行 scrcpy 即可开始投屏。  
+直接执行 `scrcpy` 即可开始投屏。  
 
 3. 无线连接  
 
-1. 切换TCP/IP：先有线连接，执行 adb tcpip 5555。  
-2. 连接设备：断开USB，执行 adb connect 设备IP:5555。  
-3. 启动：再次执行 scrcpy。  
+1. 切换TCP/IP：先有线连接，执行 `adb tcpip 5555`。  
+2. 连接设备：断开USB，执行 `adb connect 设备IP:5555`。  
+3. 启动：再次执行 `scrcpy`。  
 
 
-# 摄像头模式（Android 12+）
+# 四、摄像头模式（Android 12+）
 
-通过 --video-source=camera 将摄像头画面镜像到电脑，而非屏幕。默认音频源会自动切换为麦克风。  
+通过 `--video-source=camera` 将摄像头画面镜像到电脑，而非屏幕。默认音频源会自动切换为麦克风。  
 
 1. 基础开启  
 
@@ -49,16 +49,16 @@ scrcpy --video-source=camera
 
 2. 选择与设置  
 
-· 查看摄像头：scrcpy --list-cameras（列出ID和分辨率）。  
+· 查看摄像头：`scrcpy --list-cameras`（*列出ID和分辨率*）。  
 · 选择摄像头：  
-  · --camera-id=0（指定ID）。  
-  · --camera-facing=front 或 back（指定前后置）。  
-· 调整画质：  
-  · --camera-size=1920x1080（指定分辨率）。  
-  · --camera-fps=60（设定帧率）。  
-  · -m 1024（限制最大尺寸）。  
+  - `--camera-id=0`（*指定ID*）。  
+  - `--camera-facing=front` 或 `back`（**指定前后置**）。  
+- 调整画质：  
+  - `--camera-size=1920x1080`（**指定分辨率**）。  
+  - `--camera-fps=60`（**设定帧率**）。  
+  - `-m 1024`（**限制最大尺寸**）。  
 
-# 常用参数整理
+# 五、常用参数整理
 
 类别 参数示例 作用说明  
 画面优化 -m 1024 / -b 8M / --max-fps 30 限制分辨率/码率/帧率，改善性能。  
@@ -67,7 +67,7 @@ scrcpy --video-source=camera
 输入控制 --mouse=uhid / --keyboard=uhid 模拟物理HID设备，适合游戏操作。  
 多设备 -s 设备序列号 连接特定设备（当有多个设备时）。 
 
- # 快捷键（MOD键）
+ # 六、快捷键（MOD键）
  
  默认为 Ctrl，常用组合：  
 
@@ -76,7 +76,7 @@ scrcpy --video-source=camera
 · MOD + r：旋转手机屏幕。  
 · 拖拽APK文件：直接安装应用。  
 
-# 使用硬件编解码器
+# Other：使用硬件编解码器
 
 ## 一、通过 ADB 获取编码器列表  
 
@@ -86,7 +86,7 @@ scrcpy --video-source=camera
 adb shell media-codecs --list
 ```
 
-输出示例（重点关注带 OMX. 的硬件编码器和 c2. 的框架）：  
+输出示例（**重点关注带 `OMX.` 的硬件编码器和 `c2.` 的框架**）：  
 
 ```
 OMX.qcom.video.encoder.avc      # 高通硬件 H.264
@@ -111,7 +111,7 @@ scrcpy --list-encoders
 
 ## 二、在 scrcpy 中指定编码器
 
-拿到编码器名称后，用 --video-codec 和 --video-encoder 指定：  
+拿到编码器名称后，用 `--video-codec` 和 `--video-encoder` 指定：  
 
 ### 示例 1：指定硬件 H.264 编码器  
 
